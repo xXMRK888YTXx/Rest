@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/PlaceListScreen" />
             <option value="$PROJECT_DIR$/PreferencesStorage" />
             <option value="$PROJECT_DIR$/SplashScreen" />
+            <option value="$PROJECT_DIR$/ViewPlaceScreen" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
           </set>

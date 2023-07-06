@@ -19,6 +19,10 @@ internal class PlaceLocalDataSourceImpl(
         placeDao.insert(placeEntity.toEntity())
     }
 
+    override fun getPlaceById(id: String): Flow<PlaceLocalModel> {
+        return placeDao.getPlaceById(id).map { it.toLocalModel() }
+    }
+
     override suspend fun dropData() = withContext(Dispatchers.IO) {
         placeDao.dropData()
     }

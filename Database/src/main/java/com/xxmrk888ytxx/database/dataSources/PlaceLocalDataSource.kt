@@ -13,5 +13,8 @@ interface PlaceLocalDataSource {
 
     suspend fun insert(placeEntity: PlaceLocalModel)
 
+    fun getPlaceById(id:String) : Flow<PlaceLocalModel>
+
+
     suspend fun dropData()
 }

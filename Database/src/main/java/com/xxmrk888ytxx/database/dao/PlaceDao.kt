@@ -14,6 +14,9 @@ internal interface PlaceDao {
     @get:Query("SELECT * FROM PlaceTable")
     val placesFlow: Flow<List<PlaceEntity>>
 
+    @Query("SELECT * FROM PlaceTable WHERE fourSquareId = :id")
+    fun getPlaceById(id:String) : Flow<PlaceEntity>
+
     @Insert(onConflict = IGNORE)
     suspend fun insert(placeEntity: PlaceEntity)
 

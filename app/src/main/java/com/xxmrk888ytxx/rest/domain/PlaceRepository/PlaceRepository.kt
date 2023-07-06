@@ -7,6 +7,8 @@ interface PlaceRepository {
 
     val places: Flow<List<Place>>
 
+    fun getPlaceById(id:String) : Flow<Place>
+
     suspend fun dropCached()
 
     suspend fun load()

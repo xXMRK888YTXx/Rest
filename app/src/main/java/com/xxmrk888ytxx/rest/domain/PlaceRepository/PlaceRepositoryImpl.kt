@@ -20,6 +20,12 @@ class PlaceRepositoryImpl @Inject constructor(
         list.map { it.toPlace() }
     }
 
+    override fun getPlaceById(id: String): Flow<Place> {
+        return placeLocalDataSource.getPlaceById(id).map {
+            it.toPlace()
+        }
+    }
+
     override suspend fun dropCached() {
         placeLocalDataSource.dropData()
     }
