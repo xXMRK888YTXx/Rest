@@ -64,7 +64,8 @@ dependencies {
     implementation(project(Project.AuthApi))
     implementation(project(Project.PlaceApi))
     implementation(project(Project.Database))
-
+    implementation(project(Project.BottomBarScreen))
+    implementation(project(Project.PlaceListScreen))
 
 
     //Dagger

@@ -8,4 +8,6 @@ object Project {
     const val AuthApi = ":AuthApi"
     const val Database = ":Database"
     const val PlaceApi = ":PlaceApi"
+    const val BottomBarScreen = ":BottomBarScreen"
+    const val PlaceListScreen = ":PlaceListScreen"
 }

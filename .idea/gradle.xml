@@ -11,10 +11,12 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AuthApi" />
             <option value="$PROJECT_DIR$/AuthScreen" />
+            <option value="$PROJECT_DIR$/BottomBarScreen" />
             <option value="$PROJECT_DIR$/CoreAndroid" />
             <option value="$PROJECT_DIR$/CoreCompose" />
             <option value="$PROJECT_DIR$/Database" />
             <option value="$PROJECT_DIR$/PlaceApi" />
+            <option value="$PROJECT_DIR$/PlaceListScreen" />
             <option value="$PROJECT_DIR$/PreferencesStorage" />
             <option value="$PROJECT_DIR$/SplashScreen" />
             <option value="$PROJECT_DIR$/app" />

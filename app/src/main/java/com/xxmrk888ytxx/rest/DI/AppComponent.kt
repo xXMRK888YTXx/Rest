@@ -4,6 +4,7 @@ import android.content.Context
 import com.xxmrk888ytxx.rest.DI.modules.AuthScreenModule
 import com.xxmrk888ytxx.rest.DI.modules.DataModule
 import com.xxmrk888ytxx.rest.DI.modules.DomainModule
+import com.xxmrk888ytxx.rest.DI.modules.PlaceListScreenModule
 import com.xxmrk888ytxx.rest.DI.modules.SplashScreenModule
 import com.xxmrk888ytxx.rest.DI.modules.UseCaseModule
 import com.xxmrk888ytxx.rest.presentation.MainActivity
@@ -16,7 +17,8 @@ import dagger.Component
         DomainModule::class,
         SplashScreenModule::class,
         UseCaseModule::class,
-        AuthScreenModule::class
+        AuthScreenModule::class,
+        PlaceListScreenModule::class
     ]
 )
 @AppScope
