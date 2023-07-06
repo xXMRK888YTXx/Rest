@@ -7,6 +7,7 @@ import com.xxmrk888ytxx.rest.DI.modules.DomainModule
 import com.xxmrk888ytxx.rest.DI.modules.PlaceListScreenModule
 import com.xxmrk888ytxx.rest.DI.modules.SplashScreenModule
 import com.xxmrk888ytxx.rest.DI.modules.UseCaseModule
+import com.xxmrk888ytxx.rest.DI.modules.ViewPlaceScreenModule
 import com.xxmrk888ytxx.rest.presentation.MainActivity
 import dagger.BindsInstance
 import dagger.Component
@@ -18,7 +19,8 @@ import dagger.Component
         SplashScreenModule::class,
         UseCaseModule::class,
         AuthScreenModule::class,
-        PlaceListScreenModule::class
+        PlaceListScreenModule::class,
+        ViewPlaceScreenModule::class
     ]
 )
 @AppScope

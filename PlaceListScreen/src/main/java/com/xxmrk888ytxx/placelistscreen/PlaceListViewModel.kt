@@ -46,6 +46,8 @@ class PlaceListViewModel @Inject constructor(
                     }
                 }
             }
+
+            is LocalUiEvent.ViewPlace -> event.navigator.toViewPlaceScreen(event.id)
         }
     }
 

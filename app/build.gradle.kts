@@ -66,6 +66,7 @@ dependencies {
     implementation(project(Project.Database))
     implementation(project(Project.BottomBarScreen))
     implementation(project(Project.PlaceListScreen))
+    implementation(project(Project.ViewPlaceScreen))
 
 
     //Dagger

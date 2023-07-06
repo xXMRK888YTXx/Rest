@@ -30,5 +30,11 @@ internal class ActivityViewModel : ViewModel(),Navigator {
 
     }
 
+    override fun toViewPlaceScreen(id: String) = runOnUiThread {
+        navController?.navigate("${Screen.ViewPlaceScreen.route}/${id}") {
+            launchSingleTop = true
+        }
+    }
+
 
 }

@@ -7,8 +7,11 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.navigation.NamedNavArgument
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.xxmrk888ytxx.authscreen.AuthScreen
 import com.xxmrk888ytxx.authscreen.AuthViewModel
 import com.xxmrk888ytxx.bottombarscreen.BottomBarScreen
@@ -21,6 +24,8 @@ import com.xxmrk888ytxx.rest.extensions.composeViewModel
 import com.xxmrk888ytxx.rest.extensions.setContentWithTheme
 import com.xxmrk888ytxx.splashscreen.SplashScreen
 import com.xxmrk888ytxx.splashscreen.SplashViewModel
+import com.xxmrk888ytxx.viewplacescreen.ViewPlaceScreen
+import com.xxmrk888ytxx.viewplacescreen.ViewPlaceViewModel
 import kotlinx.collections.immutable.persistentListOf
 import javax.inject.Inject
 import javax.inject.Provider
@@ -38,6 +43,8 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var placeListViewModel: Provider<PlaceListViewModel>
 
+    @Inject
+    lateinit var viewPlaceViewModel: ViewPlaceViewModel.Factory
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,6 +108,25 @@ class MainActivity : ComponentActivity() {
                             content = {}
                         )
                     ))
+                }
+
+                composable(
+                    "${Screen.ViewPlaceScreen.route}/{id}",
+                    arguments = listOf(
+                        navArgument("id") {
+                            this.type = NavType.StringType
+                        }
+                    )
+                ) {
+                    val id = it.arguments?.getString("id") ?: return@composable
+
+                    val viewModel = composeViewModel() {
+                        viewPlaceViewModel.create(id)
+                    }
+
+                    val screenState by viewModel.state.collectAsStateWithLifecycle(initialValue = viewModel.initialValue)
+
+                    ViewPlaceScreen(screenState = screenState, onEvent = viewModel::handleEvent)
                 }
             }
         }

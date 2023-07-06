@@ -6,4 +6,6 @@ interface Navigator {
 
     fun toMainScreen()
 
+    fun toViewPlaceScreen(id:String)
+
 }

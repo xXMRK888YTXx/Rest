@@ -10,4 +10,5 @@ object Project {
     const val PlaceApi = ":PlaceApi"
     const val BottomBarScreen = ":BottomBarScreen"
     const val PlaceListScreen = ":PlaceListScreen"
+    const val ViewPlaceScreen = ":ViewPlaceScreen"
 }
