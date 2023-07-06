@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/CoreAndroid" />
             <option value="$PROJECT_DIR$/CoreCompose" />
             <option value="$PROJECT_DIR$/Database" />
+            <option value="$PROJECT_DIR$/HistoryScreen" />
             <option value="$PROJECT_DIR$/PlaceApi" />
             <option value="$PROJECT_DIR$/PlaceListScreen" />
             <option value="$PROJECT_DIR$/PreferencesStorage" />

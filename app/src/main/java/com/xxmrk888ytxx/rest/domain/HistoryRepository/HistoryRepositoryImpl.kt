@@ -18,6 +18,10 @@ class HistoryRepositoryImpl @Inject constructor(
         historyLocalDataSource.insert(HistoryLocalModel(historyModel.id,historyModel.place.fourSquareId))
     }
 
+    override suspend fun insert(placeId: String) {
+        historyLocalDataSource.insert(HistoryLocalModel(0,placeId))
+    }
+
     override val historyModels: Flow<List<HistoryModel>> = combine(
         historyLocalDataSource.historyFlow,
         placeLocalDataSource.placesFlow

@@ -7,5 +7,7 @@ interface HistoryRepository {
 
     suspend fun insert(historyModel: HistoryModel)
 
+    suspend fun insert(placeId:String)
+
     val historyModels: Flow<List<HistoryModel>>
 }

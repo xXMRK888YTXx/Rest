@@ -49,7 +49,7 @@ fun PlaceListScreen(
             .pullRefresh(pullRefreshState)) {
             if(screenState.places.isEmpty()) {
                 item {
-                    Box(Modifier.fillMaxSize()) {
+                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         Text(text = "No places")
                     }
                 }

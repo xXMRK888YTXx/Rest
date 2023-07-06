@@ -17,6 +17,8 @@ import com.xxmrk888ytxx.authscreen.AuthViewModel
 import com.xxmrk888ytxx.bottombarscreen.BottomBarScreen
 import com.xxmrk888ytxx.bottombarscreen.models.BottomBarScreenModel
 import com.xxmrk888ytxx.goals.R
+import com.xxmrk888ytxx.historyscreen.HistoryScreen
+import com.xxmrk888ytxx.historyscreen.HistoryViewModel
 import com.xxmrk888ytxx.placelistscreen.PlaceListScreen
 import com.xxmrk888ytxx.placelistscreen.PlaceListViewModel
 import com.xxmrk888ytxx.rest.extensions.appComponent
@@ -45,6 +47,9 @@ class MainActivity : ComponentActivity() {
 
     @Inject
     lateinit var viewPlaceViewModel: ViewPlaceViewModel.Factory
+
+    @Inject
+    lateinit var historyViewModel: Provider<HistoryViewModel>
 
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,6 +95,15 @@ class MainActivity : ComponentActivity() {
                     val screenStateForPlaceListScreen by viewModelForPlaceListScreen.state.collectAsStateWithLifecycle(
                         initialValue = viewModelForPlaceListScreen.initialValue
                     )
+                    //
+
+                    val viewModelForHistoryScreen = composeViewModel() {
+                        historyViewModel.get()
+                    }
+
+                    val screenStateForHistoryScreen by viewModelForHistoryScreen.state.collectAsStateWithLifecycle(
+                        initialValue = viewModelForHistoryScreen.initialValue
+                    )
 
                     BottomBarScreen(bottomBarScreens = persistentListOf(
                         BottomBarScreenModel(
@@ -105,7 +119,10 @@ class MainActivity : ComponentActivity() {
                         BottomBarScreenModel(
                             title = "History",
                             icon = R.drawable.baseline_history_24,
-                            content = {}
+                            content = {
+                                HistoryScreen(screenState = screenStateForHistoryScreen,
+                                    onEvent = viewModelForHistoryScreen::handleEvent)
+                            }
                         )
                     ))
                 }

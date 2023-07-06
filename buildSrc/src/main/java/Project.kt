@@ -11,4 +11,5 @@ object Project {
     const val BottomBarScreen = ":BottomBarScreen"
     const val PlaceListScreen = ":PlaceListScreen"
     const val ViewPlaceScreen = ":ViewPlaceScreen"
+    const val HistoryScreen = ":HistoryScreen"
 }
