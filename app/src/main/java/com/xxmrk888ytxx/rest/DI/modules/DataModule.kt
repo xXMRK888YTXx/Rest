@@ -1,6 +1,7 @@
 package com.xxmrk888ytxx.rest.DI.modules
 
 import android.content.Context
+import com.xxmrk888ytxx.authapi.AuthApi
 import com.xxmrk888ytxx.preferencesstorage.PreferencesStorage
 import com.xxmrk888ytxx.rest.DI.AppScope
 import dagger.Module
@@ -14,6 +15,11 @@ interface DataModule {
         @AppScope
         fun providePreferenceStorage(context: Context) : PreferencesStorage {
             return PreferencesStorage.Factory().create("preferences",context)
+        }
+
+        @Provides
+        fun provideAuthApi() : AuthApi {
+            return AuthApi.create()
         }
     }
 }

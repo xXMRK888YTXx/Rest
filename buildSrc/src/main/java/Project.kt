@@ -4,4 +4,6 @@ object Project {
     const val CoreCompose = ":CoreCompose"
     const val SplashScreen = ":SplashScreen"
     const val PreferencesStorage = ":PreferencesStorage"
+    const val AuthScreen = ":AuthScreen"
+    const val AuthApi = ":AuthApi"
 }

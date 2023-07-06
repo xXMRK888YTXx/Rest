@@ -10,15 +10,23 @@ internal class ActivityViewModel : ViewModel(),Navigator {
     var navController:NavController? = null
 
     override fun toAuthScreen() = runOnUiThread {
-        navController?.navigate(Screen.AuthScreen.route) { launchSingleTop = true }
+        navController?.navigate(Screen.AuthScreen.route) {
+            launchSingleTop = true
 
-        navController?.popBackStack(Screen.SplashScreen.route,inclusive = true)
+            popUpTo(Screen.SplashScreen.route) { inclusive = true }
+
+        }
+
     }
 
-    override fun toMainScreen() {
-        navController?.navigate(Screen.MainScreen.route)
+    override fun toMainScreen() = runOnUiThread {
+        navController?.navigate(Screen.MainScreen.route) {
+            popUpTo(Screen.SplashScreen.route) { inclusive = true }
 
-        navController?.popBackStack(Screen.MainScreen.route,false)
+            popUpTo(Screen.AuthScreen.route) { inclusive = true }
+
+            launchSingleTop = true
+        }
     }
 
 

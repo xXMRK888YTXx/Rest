@@ -60,6 +60,10 @@ dependencies {
     implementation(project(Project.CoreCompose))
     implementation(project(Project.SplashScreen))
     implementation(project(Project.PreferencesStorage))
+    implementation(project(Project.AuthScreen))
+    implementation(project(Project.AuthApi))
+
+
 
     //Dagger
     kapt(Deps.Dagger.DaggerKaptCompiler)

@@ -1,9 +1,11 @@
 package com.xxmrk888ytxx.rest.DI
 
 import android.content.Context
+import com.xxmrk888ytxx.rest.DI.modules.AuthScreenModule
 import com.xxmrk888ytxx.rest.DI.modules.DataModule
 import com.xxmrk888ytxx.rest.DI.modules.DomainModule
 import com.xxmrk888ytxx.rest.DI.modules.SplashScreenModule
+import com.xxmrk888ytxx.rest.DI.modules.UseCaseModule
 import com.xxmrk888ytxx.rest.presentation.MainActivity
 import dagger.BindsInstance
 import dagger.Component
@@ -12,7 +14,9 @@ import dagger.Component
     modules = [
         DataModule::class,
         DomainModule::class,
-        SplashScreenModule::class
+        SplashScreenModule::class,
+        UseCaseModule::class,
+        AuthScreenModule::class
     ]
 )
 @AppScope

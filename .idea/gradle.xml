@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/AuthApi" />
+            <option value="$PROJECT_DIR$/AuthScreen" />
             <option value="$PROJECT_DIR$/CoreAndroid" />
             <option value="$PROJECT_DIR$/CoreCompose" />
             <option value="$PROJECT_DIR$/PreferencesStorage" />
