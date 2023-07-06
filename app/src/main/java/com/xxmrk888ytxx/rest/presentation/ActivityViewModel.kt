@@ -20,13 +20,14 @@ internal class ActivityViewModel : ViewModel(),Navigator {
     }
 
     override fun toMainScreen() = runOnUiThread {
+        navController?.popBackStack()
         navController?.navigate(Screen.MainScreen.route) {
-            popUpTo(Screen.SplashScreen.route) { inclusive = true }
 
             popUpTo(Screen.AuthScreen.route) { inclusive = true }
 
             launchSingleTop = true
         }
+
     }
 
 
