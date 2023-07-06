@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/AuthApi" />
             <option value="$PROJECT_DIR$/CoreAndroid" />
             <option value="$PROJECT_DIR$/CoreCompose" />
+            <option value="$PROJECT_DIR$/PreferencesStorage" />
+            <option value="$PROJECT_DIR$/SplashScreen" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
           </set>

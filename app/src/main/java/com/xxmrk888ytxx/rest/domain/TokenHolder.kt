@@ -6,5 +6,7 @@ interface TokenHolder {
 
     val tokenFlow: Flow<String?>
 
+    val cashedToken: String?
+
     suspend fun setToken(token:String)
 }

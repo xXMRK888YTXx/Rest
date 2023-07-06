@@ -58,6 +58,8 @@ android {
 
 dependencies {
     implementation(project(Project.CoreCompose))
+    implementation(project(Project.SplashScreen))
+    implementation(project(Project.PreferencesStorage))
 
     //Dagger
     kapt(Deps.Dagger.DaggerKaptCompiler)
