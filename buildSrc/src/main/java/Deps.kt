@@ -147,5 +147,12 @@ object Deps {
         const val gmsServiceClassPath = "com.google.gms:google-services:4.3.15"
     }
 
+    object Ktor {
+        private const val ktor_version = "1.5.0"
+        const val KtorAndroid = "io.ktor:ktor-client-android:$ktor_version"
+        const val KtorSerialization =  "io.ktor:ktor-client-serialization:$ktor_version"
+        const val loggier = "io.ktor:ktor-client-logging-jvm:$ktor_version"
+    }
+
 
 }
