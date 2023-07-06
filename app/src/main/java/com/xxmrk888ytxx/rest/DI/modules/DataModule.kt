@@ -41,5 +41,8 @@ interface DataModule {
         fun providePlaceRemoteDataSource() : PlaceRemoteDataSource {
             return PlaceRemoteDataSource.create()
         }
+
+        @Provides
+        fun provideHistoryLocalDataSource(database: Database) = database.historyLocalDataSource
     }
 }
