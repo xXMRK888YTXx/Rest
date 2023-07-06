@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e68fd0e59892a48c68ea95eb6c1abc71",
+    "identityHash": "898ee037385a246fb51fa7c081938e9a",
     "entities": [
       {
         "tableName": "PlaceTable",
@@ -48,7 +48,7 @@
       },
       {
         "tableName": "HistoryTable",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `placeId` TEXT NOT NULL, FOREIGN KEY(`id`) REFERENCES `PlaceTable`(`fourSquareId`) ON UPDATE CASCADE ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `placeId` TEXT NOT NULL, FOREIGN KEY(`placeId`) REFERENCES `PlaceTable`(`fourSquareId`) ON UPDATE CASCADE ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -81,12 +81,12 @@
           },
           {
             "name": "index_HistoryTable_placeId",
-            "unique": true,
+            "unique": false,
             "columnNames": [
               "placeId"
             ],
             "orders": [],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_HistoryTable_placeId` ON `${TABLE_NAME}` (`placeId`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_HistoryTable_placeId` ON `${TABLE_NAME}` (`placeId`)"
           }
         ],
         "foreignKeys": [
@@ -95,7 +95,7 @@
             "onDelete": "CASCADE",
             "onUpdate": "CASCADE",
             "columns": [
-              "id"
+              "placeId"
             ],
             "referencedColumns": [
               "fourSquareId"
@@ -107,7 +107,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e68fd0e59892a48c68ea95eb6c1abc71')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '898ee037385a246fb51fa7c081938e9a')"
     ]
   }
 }

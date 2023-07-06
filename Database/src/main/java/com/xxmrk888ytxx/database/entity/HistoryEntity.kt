@@ -10,13 +10,13 @@ import androidx.room.PrimaryKey
     tableName = "HistoryTable",
     indices = [
         Index("id", unique = true),
-        Index("placeId", unique = true),
+        Index("placeId"),
     ],
     foreignKeys = [
         ForeignKey(
             entity = PlaceEntity::class,
             parentColumns = ["fourSquareId"],
-            childColumns = ["id"],
+            childColumns = ["placeId"],
             onUpdate = CASCADE,
             onDelete = CASCADE
         )
