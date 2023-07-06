@@ -21,31 +21,21 @@ import com.xxmrk888ytxx.bottombarscreen.models.BottomBarScreenModel
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.coroutines.launch
 
-/**
- * [Ru]
- * Экран для обьеденение других экранов спомошью bottomBar
- *
- * @param bottomBarScreens - Набор параметров, для показа bottomBar и контента для него
- * @param bannerAd - Баннер рекламмы, если нужен
- */
 
-/**
- * [En]
- * Screen for merging other screens with bottomBar
- *
- * @param bottomBarScreens - A set of parameters to show the bottomBar and content for it
- * @param bannerAd - Ad banner if needed
- */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun BottomBarScreen(
-    bottomBarScreens:ImmutableList<BottomBarScreenModel>
+    bottomBarScreens:ImmutableList<BottomBarScreenModel>,
+    topBar:@Composable () -> Unit
 ) {
     val pager = rememberPagerState()
     val scope = rememberCoroutineScope()
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+        topBar =  {
+            topBar()
+        },
         bottomBar = {
             Column(Modifier.fillMaxWidth()) {
                 BottomBar(

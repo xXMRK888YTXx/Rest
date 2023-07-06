@@ -8,4 +8,6 @@ interface Navigator {
 
     fun toViewPlaceScreen(id:String)
 
+    fun toSplashScreen()
+
 }

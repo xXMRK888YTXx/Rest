@@ -8,5 +8,7 @@ interface TokenHolder {
 
     val cashedToken: String?
 
+    suspend fun dropToken()
+
     suspend fun setToken(token:String)
 }

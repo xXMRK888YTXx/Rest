@@ -4,8 +4,18 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NamedNavArgument
 import androidx.navigation.NavType
@@ -24,6 +34,7 @@ import com.xxmrk888ytxx.placelistscreen.PlaceListViewModel
 import com.xxmrk888ytxx.rest.extensions.appComponent
 import com.xxmrk888ytxx.rest.extensions.composeViewModel
 import com.xxmrk888ytxx.rest.extensions.setContentWithTheme
+import com.xxmrk888ytxx.rest.useCase.LogoutUseCase.LogoutUseCase
 import com.xxmrk888ytxx.splashscreen.SplashScreen
 import com.xxmrk888ytxx.splashscreen.SplashViewModel
 import com.xxmrk888ytxx.viewplacescreen.ViewPlaceScreen
@@ -51,6 +62,10 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var historyViewModel: Provider<HistoryViewModel>
 
+    @Inject
+    lateinit var logoutUseCase: LogoutUseCase
+
+    @OptIn(ExperimentalMaterial3Api::class)
     @SuppressLint("ResourceType")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -105,26 +120,48 @@ class MainActivity : ComponentActivity() {
                         initialValue = viewModelForHistoryScreen.initialValue
                     )
 
-                    BottomBarScreen(bottomBarScreens = persistentListOf(
-                        BottomBarScreenModel(
-                            title = "Places",
-                            icon = R.drawable.baseline_place_24,
-                            content = {
-                                PlaceListScreen(
-                                    screenState = screenStateForPlaceListScreen,
-                                    onEvent = viewModelForPlaceListScreen::handleEvent
-                                )
-                            }
-                        ),
-                        BottomBarScreenModel(
-                            title = "History",
-                            icon = R.drawable.baseline_history_24,
-                            content = {
-                                HistoryScreen(screenState = screenStateForHistoryScreen,
-                                    onEvent = viewModelForHistoryScreen::handleEvent)
-                            }
-                        )
-                    ))
+                    BottomBarScreen(
+                        topBar = {
+                            CenterAlignedTopAppBar(
+                                title = {
+                                    Text(
+                                        text = "FourSquare",
+                                        style = MaterialTheme.typography.titleLarge
+                                    )
+                                },
+                                navigationIcon = {
+                                    IconButton(onClick = { activityViewModel.logout(logoutUseCase) }) {
+                                        Icon(
+                                            painterResource(id = R.drawable.baseline_logout_24),
+                                            contentDescription = null,
+                                            modifier = Modifier.size(24.dp)
+                                        )
+                                    }
+                                }
+                            )
+                        },
+                        bottomBarScreens = persistentListOf(
+                            BottomBarScreenModel(
+                                title = "Places",
+                                icon = R.drawable.baseline_place_24,
+                                content = {
+                                    PlaceListScreen(
+                                        screenState = screenStateForPlaceListScreen,
+                                        onEvent = viewModelForPlaceListScreen::handleEvent
+                                    )
+                                }
+                            ),
+                            BottomBarScreenModel(
+                                title = "History",
+                                icon = R.drawable.baseline_history_24,
+                                content = {
+                                    HistoryScreen(
+                                        screenState = screenStateForHistoryScreen,
+                                        onEvent = viewModelForHistoryScreen::handleEvent
+                                    )
+                                }
+                            )
+                        ))
                 }
 
                 composable(

@@ -24,6 +24,10 @@ class TokenHolderImpl @Inject constructor(
 
     override val cashedToken: String? = _cashedToken
 
+    override suspend fun dropToken() {
+        preferencesStorage.removeProperty(tokenKey)
+    }
+
     override suspend fun setToken(token: String) = withContext(Dispatchers.IO) {
         preferencesStorage.writeProperty(tokenKey,token)
     }
