@@ -1,4 +1,4 @@
-package com.xxmrk888ytxx.rest.domain
+package com.xxmrk888ytxx.rest.domain.TokenHolder
 
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.xxmrk888ytxx.preferencesstorage.PreferencesStorage

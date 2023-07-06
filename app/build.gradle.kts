@@ -62,6 +62,8 @@ dependencies {
     implementation(project(Project.PreferencesStorage))
     implementation(project(Project.AuthScreen))
     implementation(project(Project.AuthApi))
+    implementation(project(Project.PlaceApi))
+    implementation(project(Project.Database))
 
 
 

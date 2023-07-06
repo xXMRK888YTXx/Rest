@@ -1,7 +1,7 @@
 package com.xxmrk888ytxx.rest.useCase.ProvideTokenUseCase
 
 import com.xxmrk888ytxx.authapi.AuthApi
-import com.xxmrk888ytxx.rest.domain.TokenHolder
+import com.xxmrk888ytxx.rest.domain.TokenHolder.TokenHolder
 import javax.inject.Inject
 
 class ProvideTokenUseCaseImpl @Inject constructor(

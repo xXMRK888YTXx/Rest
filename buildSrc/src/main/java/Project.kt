@@ -6,4 +6,6 @@ object Project {
     const val PreferencesStorage = ":PreferencesStorage"
     const val AuthScreen = ":AuthScreen"
     const val AuthApi = ":AuthApi"
+    const val Database = ":Database"
+    const val PlaceApi = ":PlaceApi"
 }
