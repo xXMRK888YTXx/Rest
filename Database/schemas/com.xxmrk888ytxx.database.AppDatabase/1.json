@@ -1,0 +1,56 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "ad3fb46545c3439902522b8bfbf0525d",
+    "entities": [
+      {
+        "tableName": "PlaceTable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`fourSquareId` TEXT NOT NULL, `placeName` TEXT NOT NULL, `placeAddress` TEXT NOT NULL, PRIMARY KEY(`fourSquareId`))",
+        "fields": [
+          {
+            "fieldPath": "fourSquareId",
+            "columnName": "fourSquareId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "placeName",
+            "columnName": "placeName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "placeAddress",
+            "columnName": "placeAddress",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "fourSquareId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_PlaceTable_fourSquareId",
+            "unique": true,
+            "columnNames": [
+              "fourSquareId"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_PlaceTable_fourSquareId` ON `${TABLE_NAME}` (`fourSquareId`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ad3fb46545c3439902522b8bfbf0525d')"
+    ]
+  }
+}

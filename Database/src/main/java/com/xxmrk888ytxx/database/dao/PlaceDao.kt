@@ -2,6 +2,7 @@ package com.xxmrk888ytxx.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy.Companion.IGNORE
 import androidx.room.OnConflictStrategy.Companion.REPLACE
 import androidx.room.Query
 import com.xxmrk888ytxx.database.entity.PlaceEntity
@@ -13,7 +14,7 @@ internal interface PlaceDao {
     @get:Query("SELECT * FROM PlaceTable")
     val placesFlow: Flow<List<PlaceEntity>>
 
-    @Insert(onConflict = REPLACE)
+    @Insert(onConflict = IGNORE)
     suspend fun insert(placeEntity: PlaceEntity)
 
     @Query("DELETE FROM PlaceTable")
